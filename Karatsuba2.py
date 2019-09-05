@@ -44,14 +44,7 @@ def readfile(filename):
     x = int(f1[0])
     y = int(f1[1])
     return(x,y)
-    
-def outputfile():
-    openfile = open("outputPS2.txt","a") 
-    openfile.writelines("--------Function displayActorsOfMovie --------" + "\n")
-    openfile.writelines("Movie name: ")
-    openfile.writelines("-----------------------------------------" + "\n")
-    openfile.close()
-    
+       
     
 x = readfile('InputPS2.txt')[0]
 y = readfile('InputPs2.txt')[1]
@@ -64,5 +57,5 @@ openfile.close()
 #print(y)
 openfile = open("outputPS2.txt","a")
 openfile.writelines("-----------------------------------------" + "\n")
-openfile.writelines("Result:>"+str(x)+"*"+str(y)+"="+ str(subquadratic(x,y)))
+openfile.writelines(" Result:> "+str(x)+" * "+str(y)+" = "+ str(subquadratic(x,y)))
 openfile.close()
