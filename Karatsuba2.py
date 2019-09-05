@@ -14,7 +14,7 @@ def floor(n):
     return res if res == n or n >= 0 else res-1
 
     
-def karastuba(x,y):
+def subquadratic(x,y):
     if x < 10 and y <10:
         return x*y
     n = max(len(str(x)),len(str(y)))
@@ -26,14 +26,14 @@ def karastuba(x,y):
     openfile = open("outputPS2.txt","a") 
     openfile.writelines("Intermediate Values of A1, B1 after partition" + "\n")
     openfile.writelines("------------------------------------------" + "\n")
-    openfile.writelines("A:"+ str(x) + "A1:"+ str(x_H) +"A2:"+ str(x_L)+ "\n")
-    openfile.writelines("A:"+ str(y) + "A1:"+ str(y_H) +"A2:"+ str(y_L)+ "\n")
+    openfile.writelines("A : "+ str(x) + " A1 : "+ str(x_H) +" A2 : "+ str(x_L)+ "\n")
+    openfile.writelines("B : "+ str(y) + " B1 : "+ str(y_H) +" B2 : "+ str(y_L)+ "\n")
     openfile.close()
-    S1 = karastuba(x_H,y_H)
-    S2 = karastuba(x_L,y_L)
-    S3 = karastuba(x_H,y_L)
-    S4 = karastuba(x_L,y_H)
-    S5 = karastuba(x_H + x_L , y_H + y_L)
+    S1 = subquadratic(x_H,y_H)
+    S2 = subquadratic(x_L,y_L)
+    S3 = subquadratic(x_H,y_L)
+    S4 = subquadratic(x_L,y_H)
+    S5 = subquadratic(x_H + x_L , y_H + y_L)
     S6 = S5 - S1 -S2
     Karatsuba_with_complexity = int(S1*(10**(m*2))+(S3+S4)*(10**(m))+S2) #time complexity n^2
     Karatsuba = int(S1*(10**(m*2))+S6*(10**m)+S2)
@@ -64,5 +64,5 @@ openfile.close()
 #print(y)
 openfile = open("outputPS2.txt","a")
 openfile.writelines("-----------------------------------------" + "\n")
-openfile.writelines("Result:>"+str(x)+"*"+str(y)+"="+ str(karastuba(x,y)))
+openfile.writelines("Result:>"+str(x)+"*"+str(y)+"="+ str(subquadratic(x,y)))
 openfile.close()
